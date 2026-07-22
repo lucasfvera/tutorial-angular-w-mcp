@@ -8,5 +8,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('My Recipe Box')
+  protected readonly title = signal('My Recipe Box');
+
+  protected handleRecipeClick(): void {
+    console.log("Recipe clicked!")
+  }
 }
