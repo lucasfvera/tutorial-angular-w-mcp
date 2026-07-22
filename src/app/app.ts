@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('tutorial-angular-w-mcp');
+  protected readonly title = signal('My Recipe Box')
 }
