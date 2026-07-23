@@ -2,8 +2,10 @@
   <h1 class="text-2xl mb-2">{{ title() }}</h1>
   <div class="flex gap-2">
     <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
-      (click)="handleRecipeClick()">Spaghetti</button>
+      (click)="handleRecipeClick(1)">Spaghetti</button>
     <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
-      (click)="handleRecipeClick()">Salad</button>
+      (click)="handleRecipeClick(2)">Salad</button>
   </div>
+  <h2 class="text-lg">{{ recipe().name }}</h2>
+  <p>{{ recipe().description }}</p>
 </main>
