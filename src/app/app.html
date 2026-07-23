@@ -8,4 +8,11 @@
   </div>
   <h2 class="text-lg">{{ recipe().name }}</h2>
   <p>{{ recipe().description }}</p>
+  <div class="flex gap-1">
+    <p>Servings: {{ servings() }}</p>
+    <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer size-8 justify-center items-center"
+      (click)="decrease()">-</button>
+    <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer size-8 justify-center items-center"
+      (click)="increase()">+</button>
+  </div>
 </main>

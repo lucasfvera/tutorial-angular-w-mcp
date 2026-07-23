@@ -12,11 +12,23 @@ import { RecipeModel } from './models';
 export class App {
   protected readonly title = signal<string>('My Recipe Box');
   protected readonly recipe = signal<RecipeModel>(MOCK_RECIPES[0])
+  protected readonly servings = signal<number>(1)
 
   protected handleRecipeClick(recipeId: number): void {
     console.log("Recipe clicked!", recipeId)
     const selectedRecipe = MOCK_RECIPES.find(r => r.id === recipeId)
     if (!selectedRecipe) return;
     this.recipe.set(selectedRecipe)
+    this.servings.set(1)
+  }
+
+  protected decrease() {
+    if (this.servings() > 1) {
+      this.servings.update(prev => prev - 1)
+    }
+  }
+
+  protected increase() {
+    this.servings.update(prev => prev + 1)
   }
 }
