@@ -1,19 +1,9 @@
 <h1 class="text-2xl mb-2">{{ title() }}</h1>
-<div class="flex gap-2">
+<div class="flex gap-2 mb-4">
     <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
         (click)="handleRecipeClick(1)">Spaghetti</button>
     <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
         (click)="handleRecipeClick(2)">Salad</button>
 </div>
 
-<h2 class="text-lg">{{ recipe().name }}</h2>
-<img [src]="recipe().imgUrl" [attr.alt]="recipe().name" class="w-full max-w-md max-h-96 rounded mt-4">
-<p>{{ recipe().description }}</p>
-<div class="flex gap-1">
-    <p>Servings: {{ servings() }}</p>
-    <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer size-8 justify-center items-center"
-        (click)="decrease()">-</button>
-    <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer size-8 justify-center items-center"
-        (click)="increase()">+</button>
-</div>
-<pre>{{ adjustIngredients() | json }}</pre>
+<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>

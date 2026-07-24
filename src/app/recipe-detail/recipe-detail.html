@@ -1,0 +1,11 @@
+<div class="card">
+    <h2 class="subheading">{{ recipe().name }}</h2>
+    <img [src]="recipe().imgUrl" [attr.alt]="recipe().name" class="image">
+    <p>{{ recipe().description }}</p>
+    <div class="flex gap-1">
+        <p>Servings: {{ servings() }}</p>
+        <button class="button__primary" (click)="decrease()">-</button>
+        <button class="button__primary" (click)="increase()">+</button>
+    </div>
+</div>
+<pre>{{ adjustIngredients() | json }}</pre>
