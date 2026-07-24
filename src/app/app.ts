@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { JsonPipe } from '@angular/common'
 import { MOCK_RECIPES } from './mock-recipes';
 import { RecipeModel } from './models';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, JsonPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -31,4 +32,8 @@ export class App {
   protected increase() {
     this.servings.update(prev => prev + 1)
   }
+
+  protected readonly adjustIngredients = computed(() => {
+    return this.recipe().ingredients.map(ingredient => ({ ...ingredient, quantity: ingredient.quantity * this.servings() }))
+  })
 }
