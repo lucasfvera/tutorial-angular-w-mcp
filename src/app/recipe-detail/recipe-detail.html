@@ -1,5 +1,10 @@
 <div class="card">
-    <h2 class="subheading">{{ recipe().name }}</h2>
+    <div class="flex justify-between items-center gap-3">
+        <h2 class="subheading">{{ recipe().name }}</h2>
+        @if(recipe().isFavorite){
+        <span>⭐</span>
+        }
+    </div>
     <img [src]="recipe().imgUrl" [attr.alt]="recipe().name" class="image">
     <p>{{ recipe().description }}</p>
     <div class="flex gap-1">
