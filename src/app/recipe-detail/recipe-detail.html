@@ -8,4 +8,10 @@
         <button class="button__primary" (click)="increase()">+</button>
     </div>
 </div>
-<pre>{{ adjustIngredients() | json }}</pre>
+<ul>
+    @for(ingredient of adjustIngredients(); track ingredient.name){
+    <li>
+        {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+    </li>
+    }
+</ul>
