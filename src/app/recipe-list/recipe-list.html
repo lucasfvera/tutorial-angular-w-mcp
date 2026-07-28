@@ -1,9 +1,11 @@
 <h1 class="text-2xl mb-2">{{ title() }}</h1>
+<label for="search-recipe-term">Search: </label>
+<input id="search-recipe-term" type="text" [(ngModel)]="searchTerm" class="border border-amber-600 rounded mb-4 px-2">
 <div class="flex gap-2 mb-4">
+    @for(recipe of filteredRecipes(); track recipe.id){
     <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
-        (click)="handleRecipeClick(1)">Spaghetti</button>
-    <button class="border rounded bg-gray-400 hover:bg-gray-500 cursor-pointer p-1"
-        (click)="handleRecipeClick(2)">Salad</button>
+        (click)="handleRecipeClick(recipe.id)">{{ recipe.name }}</button>
+    }
 </div>
 
 <app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
